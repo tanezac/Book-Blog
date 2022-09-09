@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tailwind Starter Template - Minimal Blog: Tailwind Toolbox</title>
+    <meta name="author" content="name" />
+    <meta name="description" content="description here" />
+    <meta name="keywords" content="keywords,here" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+
+    <!--Replace with your tailwind.css once created-->
+
+</head>
+
+  
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+	<nav id="header" class="fixed w-full z-10 top-0">
+
+		<div id="progress" class="h-1 z-20 top-0" style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
+
+		<div class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
+
+			<div class="pl-4">
+				<a class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl" href="#">
+					Book Blog
+				</a>
+			</div>
+
+			<div class="block lg:hidden pr-4">
+				<button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-green-500 appearance-none focus:outline-none">
+					<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+						<title>Menu</title>
+						<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+					</svg>
+				</button>
+			</div>
+
+			<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-100 md:bg-transparent z-20" id="nav-content">
+				<ul class="list-reset lg:flex justify-end flex-1 items-center">
+					<li class="mr-3">
+						<a class="inline-block py-2 px-4 text-gray-900 font-bold no-underline" href="#home">Home</a>
+					</li>
+					<li class="mr-3">
+						<a class="inline-block py-2 px-4 text-gray-900 font-bold no-underline" href="#upload">Upload Book</a>
+					</li>
+					<li class="mr-3">
+						<a class="inline-block py-2 px-4 text-gray-900 font-bold no-underline" href="#details">List</a>
+					</li>
+					<li class="mr-3">
+						<a class="inline-block py-2 px-4 text-gray-900 font-bold no-underline" href="#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+<div class="row">
+
+	<!--Container-->
+	<div id ="home" class="container w-full md:max-w-3xl mx-auto pt-20 columns">
+
+		<div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
+
+			<!--Title-->
+			<div class="font-sans">
+					<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">🌼 Welcome to Book Blog</h1>
+			</div>
+
+			<!--Post Content-->
+			<p class="py-6">
+				👋 Welcome fellow book enthusiasts! This Blog allows you to upload your favorite books and share them with others
+			</p>
+
+			<p class="py-2">Some features to know before you upload your favorite book: </p>
+
+
+			<h1 class="py-2">1. Books should have a Title, Author, and ISBN. </h1>
+			<h1 class="py-2">2. You should be able to create, edit, and delete books. </h1>
+			<h1 class="py-2">3. When You Add a published date to books, list books will sort by the date they were published.  </h1>
+			
+
+			<blockquote class="border-l-4 border-green-500 italic my-8 pl-8 md:pl-12">
+			“Good friends, good books, and a sleepy conscience: this is the ideal life.”
+			 Mark Twain
+			</blockquote>
+
+		</div>
+		
+		<!--Upload book catalog-->
+		<div id ="upload" class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
+
+			<!--Title-->
+			<div class="font-sans">
+					<h3 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-2xl md:text-2xl">📤 UPLOAD YOUR BOOK CATALOG</h3>
+					<hr class=" mb-8">	
+					
+					<form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+                    
+					
+					<div class="relative z-0 mb-6 w-full group text-xl">
+							<input type="text" name="title" id="title" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+							<label class=" block mb-7 text-2x1 font-medium text-gray-900 dark:text-gray-300 peer-focus:font-medium absolute text-sm duration-800 transform -translate-y-6 scale-140 top-3 -z-10 origin-[0] ">Title</label><label class="hide" id="titleValidationError"></label>
+					</div>
+                    
+					<div class="relative z-0 mb-6 w-full group">
+							<input type="text" name="author" id="author" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+							<label class=" block mb-2 text-2x1 font-medium text-gray-900 dark:text-gray-300 peer-focus:font-medium absolute text-sm duration-800 transform -translate-y-6 scale-140 top-3 -z-10 origin-[0] ">Author</label>
+					</div>
+                			
+					<div class="relative z-0 mb-6 w-full group">
+							<input type="text" name="isbn" id="isbn" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+							<label class=" block mb-2 text-2x1 font-medium text-gray-900 dark:text-gray-300 peer-focus:font-medium absolute text-sm duration-800 transform -translate-y-6 scale-140 top-3 -z-10 origin-[0] ">ISBN</label>
+					</div>
+					
+					<div>
+                        <label class="text-gray-900 dark:text-gray-300 scale-120 top-3 -z-10 origin-[0] ">Public Date</label>
+                        <input type="date" name="date" id="date">
+                    </div>
+					<br/>
+					
+                    <div>                
+						<button type="submit" value="Submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>	
+                    </div>
+                </form>
+					<br/>
+					
+					<!--Title-->
+					<h3 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-2xl md:text-2xl">📚 BOOK LIST</h3>
+					<div class="overflow-x-auto relative shadow-md sm:rounded-lg"  style="font-family:Georgia,serif;">
+						<table id="details" class="sortable w-full text-sm text-left text-gray-500 dark:text-gray-400" cellpadding="10px" cellspacing="0" border="10">    
+							<thead class="text-m text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+									<tr>
+										<th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">TITLE</th>
+										<th scope="col" class="py-3 px-6">AUTHOR</th>
+										<th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">ISBN</th>
+										<th scope="col" class="py-3 px-6">DATE</th>
+										<th>ACTION</th>
+									</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>    
+					</div>
+			</div>
+		</div>
+	</div>	
+		
+		<!--Divider-->
+		<hr>	
+		<hr class=" mb-8 mx-4 px-4">
+	
+	<footer class="bg-white border-t border-gray-400 shadow">
+		<div id = "contact" class="container max-w-4xl mx-auto flex py-8">
+
+			<div class="w-full mx-auto flex flex-wrap">
+				<div class="flex w-full md:w-1/2 ">
+					<div class="px-8">
+						<h3 class="font-bold text-gray-900">About</h3>
+						<p class="py-4 text-gray-600 text-sm">
+							Which story do you want to read?
+						</p>
+						<blockquote class="py-4 text-gray-600 text-sm">
+							“Sometimes, you read a book and it fills you with this weird evangelical zeal, 
+							and you become convinced that the shattered world will never be put back together unless 
+							and until all living humans read the book.”
+						</blockquote>
+					</div>
+				</div>
+
+				<div class="flex w-full md:w-1/2">
+					<div class="px-8">
+						<h3 class="font-bold text-gray-900">Contact</h3>
+						<ul class="list-reset items-center text-sm pt-3">
+							<li>
+								<a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">Tan Nguyen</a>
+							</li>
+							<li>
+								<a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">ntnhmc@umsystem.edu</a>
+							</li>
+							<li>
+								<a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">(314) 679 - 0239</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+</div>	
+	
+	<div class="container w-full md:max-w-3xl mx-auto pt-20 columns">	
+	<!--Subscribe-->
+		<div class="container px-4">
+			<div class="font-sans bg-gradient-to-b from-green-100 to-gray-100 rounded-lg shadow-xl p-4 text-center">
+				<h2 class="font-bold break-normal text-xl md:text-3xl">Subscribe for Notifications</h2>
+				<h3 class="font-bold break-normal text-gray-600 text-sm md:text-base">Get news of the latest books delivered right to your inbox</h3>
+				<div class="w-full text-center pt-4">
+					<form action="#">
+						<div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
+							<input type="email" placeholder="youremail@example.com" class="flex-1 mt-4 appearance-none border border-gray-400 rounded shadow-md p-3 text-gray-600 mr-2 focus:outline-none">
+							<button type="submit" class="flex-1 mt-4 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	<!-- /Subscribe-->
+	</div>
+	
+</div>
+
+	
+<script>
+	
+	var selectedRow = null
+
+	function onFormSubmit() {
+	
+	
+		if (validate()) {
+			var formData = readFormData();
+			if (selectedRow == null)
+				insertNewRecord(formData);
+			else
+				updateRecord(formData);
+				sortTableFunction(table);
+			resetForm();
+		}
+	}
+
+	function readFormData() {
+		var formData = {};
+		formData["title"] = document.getElementById("title").value;
+		formData["author"] = document.getElementById("author").value;
+		formData["isbn"] = document.getElementById("isbn").value;
+		formData["date"] = document.getElementById("date").value;
+		return formData;
+	}
+
+	function insertNewRecord(data) {
+		var table = document.getElementById("details").getElementsByTagName('tbody')[0];
+		var newRow = table.insertRow(table.length);
+		cell1 = newRow.insertCell(0);
+		cell1.innerHTML = data.title;
+		cell2 = newRow.insertCell(1);
+		cell2.innerHTML = data.author;
+		cell3 = newRow.insertCell(2);
+		cell3.innerHTML = data.isbn;
+		cell4 = newRow.insertCell(3);
+		
+		
+		cell4.innerHTML = data.date;
+		cell4 = newRow.insertCell(4);
+						   
+		cell4.innerHTML = `<button onClick="onEdit(this)" class="text-white bg-green-700 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Edit</button>
+						   <button onClick="onDelete(this)" class="text-white bg-green-600 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Delete</button>`;
+	}
+
+	function resetForm() {
+		document.getElementById("title").value = "";
+		document.getElementById("author").value = "";
+		document.getElementById("isbn").value = "";
+		document.getElementById("date").value = "";
+		selectedRow = null;
+	}
+
+	function onEdit(td) {
+		selectedRow = td.parentElement.parentElement;
+		document.getElementById("title").value = selectedRow.cells[0].innerHTML;
+		document.getElementById("author").value = selectedRow.cells[1].innerHTML;
+		document.getElementById("isbn").value = selectedRow.cells[2].innerHTML;
+		document.getElementById("date").value = selectedRow.cells[3].innerHTML;
+		
+	}
+	
+	function updateRecord(formData) {
+		selectedRow.cells[0].innerHTML = formData.title;
+		selectedRow.cells[1].innerHTML = formData.author;
+		selectedRow.cells[2].innerHTML = formData.isbn;
+		selectedRow.cells[3].innerHTML = formData.date;
+	}
+
+	function onDelete(td) {
+		if (confirm('Are you sure to delete this record ?')) {
+			row = td.parentElement.parentElement;
+			document.getElementById("details").deleteRow(row.rowIndex);
+			resetForm();
+		}
+	}
+	
+	function validate() {
+		isValid = true;
+		if (document.getElementById("title").value == "") {
+			isValid = false;
+			document.getElementById("titleValidationError").classList.remove("hide");
+		} else {
+			isValid = true;
+			if (!document.getElementById("titleValidationError").classList.contains("hide"))
+				document.getElementById("titleValidationError").classList.add("hide");
+		}
+		return isValid;
+	}
+	
+	/***************************************************************************************************************************/
+	
+		var tables = document.querySelectorAll("table.sortable"),
+			table,
+			thead,
+			headers,
+			i,
+			j;
+
+		for (i = 0; i < tables.length; i++) {
+			table = tables[i];
+
+			if (thead = table.querySelector("thead")) {
+				headers = thead.querySelectorAll("th");
+
+				for (j = 0; j < headers.length; j++) {
+					headers[j].innerHTML = "<a href='#'>" + headers[j].innerText + "</a>";
+				}
+
+				thead.addEventListener("click", sortTableFunction(table));
+			}
+		}
+		
+
+		/**
+		 * Create a function to sort the given table.
+		 */
+		function sortTableFunction(table) {
+			return function(ev) {
+				if (ev.target.tagName.toLowerCase() == 'a') {
+					sortRows(table, siblingIndex(ev.target.parentNode));
+					ev.preventDefault();
+				}
+			};
+		}
+
+		/**
+		 * Get the index of a node relative to its siblings — the first (eldest) sibling
+		 * has index 0, the next index 1, etc.
+		 */
+		function siblingIndex(node) {
+			var count = 0;
+			while (node = node.previousElementSibling) {
+				count++;
+			}
+
+			return count;
+		}
+
+		/**
+		 * Sort the given table by the numbered column (0 is the first column, etc.)
+		 */
+		function sortRows(table, columnIndex) {
+			var rows = table.querySelectorAll("tbody tr"),
+				sel = "thead th:nth-child(" + (columnIndex + 1) + ")",
+				sel2 = "td:nth-child(" + (columnIndex + 1) + ")",
+				classList = table.querySelector(sel).classList,
+				values = [],
+				cls = "",
+				allNum = true,
+				val,
+				index,
+				node;
+
+			if (classList) {
+				if (classList.contains("date")) {
+					cls = "date";
+				} 
+			}
+
+			for (index = 0; index < rows.length; index++) {
+				node = rows[index].querySelector(sel2);
+				val = node.innerText;
+
+				if (isNaN(val)) {
+					allNum = false;
+				} else {
+					val = parseFloat(val);
+				}
+
+				values.push({ value: val, row: rows[index] });
+			}
+
+			values.sort(sortDateVal);
+
+			for (var idx = 0; idx < values.length; idx++) {
+				table.querySelector("tbody").appendChild(values[idx].row);
+			}
+		}
+
+		/**
+		 * Numeric sort comparison
+		 */
+		function sortNumber(a, b) {
+			return a - b;
+		}
+
+		/**
+		 * Compare two 'value objects' as dates
+		 */
+		function sortDateVal(a, b) {
+			var dateA = Date.parse(a.value),
+				dateB = Date.parse(b.value);
+
+			return sortNumber(dateA, dateB);
+		}
+
+		
+			
+	
+	
+	
+	/***************************************************************************************************************************/
+	
+		/* Progress bar */
+		//Source: https://alligator.io/js/progress-bar-javascript-css-variables/
+		var h = document.documentElement,
+			b = document.body,
+			st = 'scrollTop',
+			sh = 'scrollHeight',
+			progress = document.querySelector('#progress'),
+			scroll;
+		var scrollpos = window.scrollY;
+		var header = document.getElementById("header");
+		var navcontent = document.getElementById("nav-content");
+
+		document.addEventListener('scroll', function() {
+
+			/*Refresh scroll % width*/
+			scroll = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+			progress.style.setProperty('--scroll', scroll + '%');
+
+			/*Apply classes for slide in bar*/
+			scrollpos = window.scrollY;
+
+			if (scrollpos > 10) {
+				header.classList.add("bg-white");
+				header.classList.add("shadow");
+				navcontent.classList.remove("bg-gray-100");
+				navcontent.classList.add("bg-white");
+			} else {
+				header.classList.remove("bg-white");
+				header.classList.remove("shadow");
+				navcontent.classList.remove("bg-white");
+				navcontent.classList.add("bg-gray-100");
+
+			}
+
+		});
+		
+		//Javascript to toggle the menu
+		document.getElementById('nav-toggle').onclick = function() {
+			document.getElementById("nav-content").classList.toggle("hidden");
+		}
+</script>
+
+</body>
+
+</html>
