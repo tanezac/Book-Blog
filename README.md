@@ -10,4 +10,3 @@ Some features to know before you upload your favorite book:
 
 however, the list of books will not automatically sort by the date they were published. To be able to sort books by date, you can click on the Date item in the book list
 
-* ...
